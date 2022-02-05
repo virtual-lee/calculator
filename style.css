@@ -79,12 +79,20 @@ select {
   display: flex;
 }
 
-.flex-container > .screen {
+.flex-container-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-1,
+.screen-2 {
   margin: 10px;
   padding: 20px;
   background-color: gray;
-  width: 100%;
+  width: 340px;
+  height: 65px;
   border-radius: 5px;
+  text-align: right;
 }
 
 .flex-container > .btn {
