@@ -1,5 +1,6 @@
 let input ='';
 let previousInput = '';
+let operator;
 
 function num0(){
     return display(0);
@@ -23,7 +24,18 @@ function num4(){
 };
 
 function plus(){
-    document.getElementById("previous-input").textContent = input.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " +";
+    operator = '+';
+    console.log("input" + input)
+
+    if (previousInput != ''){
+        return calculateAdd();
+    }
+    
+    document.getElementById("previous-input").textContent = input.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " " + operator;
+    previousInput = input;    
+    console.log("prev " + previousInput);
+    
+    input = '';
 }    
 
 
@@ -31,10 +43,18 @@ function reset(){
     document.getElementById("display").textContent = "";
     document.getElementById("previous-input").textContent = "";
     input = '';
+    previousInput = '';
 }
 
-function calculate(){
+function calculateAdd(){
+    let calc = parseInt(previousInput) + parseInt(input);
+    calc = calc.toString();
+    console.log("calc" + calc)
 
+    document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
+
+    //return display(calc);
 }
 
 function display(num){
