@@ -27,7 +27,7 @@ function plus(){
     operator = '+';
     console.log("input" + input)
 
-    if (previousInput != ''){
+    if (previousInput.length > 0){
         return calculateAdd();
     }
     
@@ -44,6 +44,15 @@ function reset(){
     document.getElementById("previous-input").textContent = "";
     input = '';
     previousInput = '';
+}
+
+function equals(){
+    if (operator == '+'){
+        let calc = parseInt(previousInput) + parseInt(input);
+        calc = calc.toString();
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = previousInput.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
+    }
 }
 
 function calculateAdd(){
