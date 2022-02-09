@@ -1,3 +1,5 @@
+//const num = document.getElementsByClassName("num-btn").addEventListener("click", displayNum);
+//console.log(num);
 let input ='';
 let previousInput = '';
 let operator;
@@ -7,7 +9,13 @@ function num0(){
 };
 
 function num1(){
-    return display(1);
+    
+    if (previousInput.length == 0){
+        document.getElementById("previous-input").textContent = ""
+        return display(1);
+        
+    }
+        return display(1);
 };
 
 function num2(){
@@ -52,6 +60,8 @@ function equals(){
         calc = calc.toString();
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = previousInput.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
+        input = '';
+        previousInput = '';
     }
 }
 
