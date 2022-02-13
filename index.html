@@ -14,32 +14,32 @@
             <div class="calculator screen-2" id="display"></div>
         </div>
         <div class="flex-container row-1">
-            <div class="calculator-7 btn"><button type="button" id="num7" onclick="num7()">7</button></div>
-            <div class="calculator-8 btn"><button type="button" id="num8" onclick="num8()">8</button></div>
-            <div class="calculator-9 btn"><button type="button" id="num9" onclick="num9()">9</button></div>
-            <div class="calculator-del btn"><button type="button" id="del" onclick="del()">DEL</button></div>
+            <div class="calculator-7 btn"><button type="button" id="num7" class="button" onclick="numInput(7)">7</button></div>
+            <div class="calculator-8 btn"><button type="button" id="num8" class="button" onclick="numInput(8)">8</button></div>
+            <div class="calculator-9 btn"><button type="button" id="num9" class="button" onclick="numInput(9)">9</button></div>
+            <div class="calculator-del btn"><button type="button" id="del" class="button" onclick="del()">DEL</button></div>
         </div>
         <div class="flex-container row-2">
-            <div class="calculator-4 btn"><button type="button" id="num4" onclick="num4()">4</button></div>
-            <div class="calculator-5 btn"><button type="button" id="num5" onclick="num5()">5</button></div>
-            <div class="calculator-6 btn"><button type="button" id="num6" onclick="num6()">6</button></div>
-            <div class="calculator-plus btn"><button type="button" id="plus" onclick="plus()">+</button></div>
+            <div class="calculator-4 btn"><button type="button" id="num4" class="button" onclick="numInput(4)">4</button></div>
+            <div class="calculator-5 btn"><button type="button" id="num5" class="button" onclick="numInput(5)">5</button></div>
+            <div class="calculator-6 btn"><button type="button" id="num6" class="button" onclick="numInput(6)">6</button></div>
+            <div class="calculator-plus btn"><button type="button" id="plus" class="button" onclick="calculate('+')">+</button></div>
         </div>
         <div class="flex-container row-4">
-            <div class="calculator-1 btn"><button type="button" id="num1" class="num-btn" value="1" onclick="num1()">1</button></div>
-            <div class="calculator-2 btn"><button type="button" id="num2" class="num-btn" value="2" onclick="num2()">2</button></div>
-            <div class="calculator-3 btn"><button type="button" id="num3" onclick="num3()">3</button></div>
-            <div class="calculator-minus btn"><button type="button" id="minus" onclick="minus">-</button></div>
+            <div class="calculator-1 btn"><button type="button" id="num1" class="button" onclick="numInput(1)">1</button></div>
+            <div class="calculator-2 btn"><button type="button" id="num2" class="button" onclick="numInput(2)">2</button></div>
+            <div class="calculator-3 btn"><button type="button" id="num3" class="button" onclick="numInput(3)">3</button></div>
+            <div class="calculator-minus btn"><button type="button" id="minus" class="button" onclick="calculate('-')">-</button></div>
         </div>
         <div class="flex-container row-5">
-            <div class="calculator-dec btn"><button type="button" id="dec" onclick="dec()">.</button></div>
-            <div class="calculator-0 btn"><button type="button" id="num0" onclick="num0()">0</button></div>
-            <div class="calculator-div btn"><button type="button" id="div" onclick="div()">/</button></div>
-            <div class="calculator-mult btn"><button type="button" id="mult" onclick="mult()">x</button></div>
+            <div class="calculator-dec btn"><button type="button" id="dec" class="button" onclick="dec()">.</button></div>
+            <div class="calculator-0 btn"><button type="button" id="num0" class="button" onclick="numInput(0)">0</button></div>
+            <div class="calculator-div btn"><button type="button" id="div" class="button" onclick="div()">/</button></div>
+            <div class="calculator-mult btn"><button type="button" id="mult" class="button" onclick="mult()">x</button></div>
         </div>
         <div class="flex-container row-6">
-            <div class="calculator-reset btn"><button type="button" id="reset" onclick="reset()">RESET</button></div>
-            <div class="calculator-equal btn"><button type="button" id="equals" onclick="equals()">=</button></div>
+            <div class="calculator-reset btn"><button type="button" id="reset" class="button" onclick="reset()">RESET</button></div>
+            <div class="calculator-equal btn"><button type="button" id="equals" class="button" onclick="equals()">=</button></div>
         </div>
         
     </div>

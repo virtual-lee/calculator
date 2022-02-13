@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 /*
  * [Modified] Modern CSS Reset
  * @link https://github.com/hankchizljaw/modern-css-reset
@@ -70,9 +72,15 @@ select {
 }
 
 .calculator-body {
-  background-color: aqua;
+  background-color: #fcfcfd;
+  border-radius: 4px;
+  border-width: 5px;
   max-width: fit-content;
   border-radius: 5px;
+  border-color: #36395a;
+  border-style: solid;
+  margin-left: 10%;
+  margin-top: 10%;
 }
 
 .flex-container {
@@ -82,31 +90,101 @@ select {
 .flex-container-display {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .screen-1,
 .screen-2 {
   margin: 10px;
-  padding: 20px;
+  padding-right: 20px;
   background-color: gray;
   width: 340px;
-  height: 65px;
-  border-radius: 5px;
   text-align: right;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 30px;
+}
+
+.screen-1 {
+  font-size: 15px;
+  height: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.screen-2 {
+  margin-top: 0px;
+  border-radius: 0px 0px 5px 5px;
+  margin-bottom: 0px;
+  height: 45px;
 }
 
 .flex-container > .btn {
-  margin: 10px;
-  padding: 20px;
-  background-color: burlywood;
+  /*margin: 10px;*/
+  padding: 15px;
+  background-color: #fcfcfd;
   border-radius: 5px;
   width: 100%;
 }
 
 .row-6 > .btn {
-  margin: 10px;
-  padding: 20px;
-  background-color: rgb(222, 135, 189);
+  /*margin: 10px;*/
+  padding: 15px;
+  background-color: #fcfcfd;
   border-radius: 5px;
   width: 100%;
+}
+
+#equals,
+#reset {
+  width: 150px;
+}
+
+/* CSS */
+.button {
+  align-items: center;
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395a;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'JetBrains Mono', monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
 }

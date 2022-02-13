@@ -3,37 +3,43 @@
 let input ='';
 let previousInput = '';
 let operator;
+let displayNum;
+let calc = '';
+let previousCalc = '';
 
-function num0(){
-    return display(0);
-};
-
-function num1(){
-    
+function numInput(num){
     if (previousInput.length == 0){
         document.getElementById("previous-input").textContent = ""
-        return display(1);
+        return display(num);
         
     }
-        return display(1);
+        return display(num);
 };
 
-function num2(){
-    return display(2);
-};
+function calculate(op){
 
-function num3(){
-    return display(3);
-};
+    operator = op;
 
+    if (operator == '+'){
+        if (previousInput.length > 0){
+        return calculateAdd();
+        }
+        document.getElementById("previous-input").textContent = input.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " " + operator;
+        previousInput = input;    
+        input = '';
+    } else if (operator == '-'){
+        if (previousInput.length > 0){
+        return calculateMinus();
+        }
+        document.getElementById("previous-input").textContent = input.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " " + operator;
+        previousInput = input;    
+        input = '';
+    }
+}
 
-function num4(){
-    return display(4);
-};
-
-function plus(){
+/*function plus(){
     operator = '+';
-    console.log("input" + input)
+    //console.log("input" + input)
 
     if (previousInput.length > 0){
         return calculateAdd();
@@ -41,10 +47,10 @@ function plus(){
     
     document.getElementById("previous-input").textContent = input.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " " + operator;
     previousInput = input;    
-    console.log("prev " + previousInput);
+    //console.log("prev " + previousInput);
     
     input = '';
-}    
+}*/    
 
 
 function reset(){
@@ -52,44 +58,115 @@ function reset(){
     document.getElementById("previous-input").textContent = "";
     input = '';
     previousInput = '';
+    calc = '';
+    previousCalc = '';
+
 }
 
 function equals(){
+    console.log(previousInput);
+    console.log(input);
+    console.log(calc);
+    previousCalc = calc;
+
     if (operator == '+'){
-        let calc = parseInt(previousInput) + parseInt(input);
+        if (calc.length == 0){
+        calc = parseInt(previousInput) + parseInt(input);
         calc = calc.toString();
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = previousInput.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
         input = '';
         previousInput = '';
+        } else if (calc.length > 0){
+        calc = parseInt(calc) + parseInt(input);
+        calc = calc.toString();
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = previousCalc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
+        input = '';
+        previousInput = '';
     }
+    } if (operator == '-'){
+        if (calc.length == 0){
+        calc = parseInt(previousInput) - parseInt(input);
+        calc = calc.toString();
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = previousInput.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
+        input = '';
+        previousInput = '';
+        } else if (calc.length > 0){
+        calc = parseInt(calc) - parseInt(input);
+        calc = calc.toString();
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = previousCalc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
+        input = '';
+        previousInput = '';
+            }
+        }
 }
 
 function calculateAdd(){
-    let calc = parseInt(previousInput) + parseInt(input);
-    calc = calc.toString();
-    console.log("calc" + calc)
 
-    document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
+    if (calc.length == 0){
+        calc = parseInt(previousInput) + parseInt(input);
+        calc = calc.toString();
 
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
+        input = '';
+        //operator = '';  
+    } else if (calc.length > 0){
+        calc = parseInt(calc) + parseInt(input);
+        calc = calc.toString();
+
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
+        input = '';
+        //operator = '';
+    }
+    //return display(calc);
+}
+
+function calculateMinus(){
+
+    console.log(previousInput);
+    console.log(input);
+    console.log(calc);
+    console.log(operator);
+
+    if (calc.length == 0){
+        calc = parseInt(previousInput) - parseInt(input);
+        calc = calc.toString();
+
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
+        input = '';
+        //operator = '';  
+    } else if (calc.length > 0){
+        calc = parseInt(calc) - parseInt(input);
+        calc = calc.toString();
+
+        document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
+        input = '';
+        //operator = '';
+    }
     //return display(calc);
 }
 
 function display(num){
     
-    console.log("length " + input.length);
+    //console.log("length " + input.length);
 
     if (input == '' ){
         input = num.toString();
-        console.log(input);
+        //console.log(input);
         document.getElementById("display").textContent = input;
     } else if (input == 0){
         document.getElementById("display").textContent = input;
     } else if (input.length <= 20){
         input += num.toString();
- 
-        console.log(input);
+
+        //console.log(input);
         document.getElementById("display").textContent = input.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     
