@@ -3,6 +3,7 @@
 let input ='';
 let previousInput = '';
 let operator;
+let previousOperator = '';
 let displayNum;
 let calc = '';
 let previousCalc = '';
@@ -18,9 +19,20 @@ function numInput(num){
 
 function calculate(op){
 
+    previousOperator = operator;
     operator = op;
+    
+    console.log("operator " + operator)
+    console.log("previousOperator " + previousOperator)
+    console.log("previousInput " + previousInput.length)
 
-    if (operator == '+'){
+    if (operator != previousOperator && previousCalc != ''){
+        if (previousOperator == '+'){
+            calculateAdd();
+        } else if (previousOperator == '-'){
+            calculateMinus();
+        }
+    } else if (operator == '+'){
         if (previousInput.length > 0){
         return calculateAdd();
         }
@@ -60,14 +72,19 @@ function reset(){
     previousInput = '';
     calc = '';
     previousCalc = '';
+    previousOperator = '';
+    operator = '';
 
 }
 
 function equals(){
-    console.log(previousInput);
-    console.log(input);
-    console.log(calc);
+    console.log("previousInput " + previousInput);
+    console.log("input " + input);
+    console.log("calc " + calc);
     previousCalc = calc;
+    console.log("operator " + operator);
+    console.log(calc.length);
+    
 
     if (operator == '+'){
         if (calc.length == 0){
@@ -75,15 +92,15 @@ function equals(){
         calc = calc.toString();
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = previousInput.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
-        input = '';
-        previousInput = '';
+        //input = '';
+        //previousInput = '';
         } else if (calc.length > 0){
         calc = parseInt(calc) + parseInt(input);
         calc = calc.toString();
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = previousCalc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
-        input = '';
-        previousInput = '';
+        //input = '';
+        //previousInput = '';
     }
     } if (operator == '-'){
         if (calc.length == 0){
@@ -91,15 +108,15 @@ function equals(){
         calc = calc.toString();
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = previousInput.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
-        input = '';
-        previousInput = '';
+         //input = '';
+        //previousInput = '';
         } else if (calc.length > 0){
         calc = parseInt(calc) - parseInt(input);
         calc = calc.toString();
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = previousCalc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator + " " + input + " =";
-        input = '';
-        previousInput = '';
+        //input = '';
+        //previousInput = '';
             }
         }
 }
@@ -130,7 +147,7 @@ function calculateMinus(){
 
     console.log(previousInput);
     console.log(input);
-    console.log(calc);
+    console.log(calc.length);
     console.log(operator);
 
     if (calc.length == 0){
