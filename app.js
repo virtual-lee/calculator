@@ -24,13 +24,17 @@ function calculate(op){
     
     console.log("operator " + operator)
     console.log("previousOperator " + previousOperator)
-    console.log("previousInput " + previousInput.length)
+    console.log("previousInput " + previousInput)
+    console.log("input "+ input)
+    console.log(calc.length)
 
-    if (operator != previousOperator && previousCalc != ''){
-        if (previousOperator == '+'){
-            calculateAdd();
-        } else if (previousOperator == '-'){
-            calculateMinus();
+    if (previousOperator == 'undefined'){
+        if (operator != previousOperator){
+            if (previousOperator == '+'){
+                calculateAdd();
+            } else if (previousOperator == '-'){
+                calculateMinus();
+            }
         }
     } else if (operator == '+'){
         if (previousInput.length > 0){
@@ -129,7 +133,7 @@ function calculateAdd(){
 
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
-        input = '';
+        //input = '';
         //operator = '';  
     } else if (calc.length > 0){
         calc = parseInt(calc) + parseInt(input);
@@ -137,7 +141,7 @@ function calculateAdd(){
 
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
-        input = '';
+        //input = '';
         //operator = '';
     }
     //return display(calc);
@@ -156,7 +160,7 @@ function calculateMinus(){
 
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
-        input = '';
+        //input = '';
         //operator = '';  
     } else if (calc.length > 0){
         calc = parseInt(calc) - parseInt(input);
@@ -164,7 +168,7 @@ function calculateMinus(){
 
         document.getElementById("display").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("previous-input").textContent = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",")  + " " + operator;
-        input = '';
+        //input = '';
         //operator = '';
     }
     //return display(calc);
